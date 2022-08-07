@@ -2,12 +2,6 @@ const { dhis2destination , dhis2source } = require('./axiosconfig');
 const fs = require('fs');
 const csv = require('csv-parser');
 
-/* const de ='fFvNf25ygzR'
-const coc ='tFdansXIMbw'
-const optionsrc=['jWLFQL2QzEg:eeruCK8vkwY','jWLFQL2QzEg:C8CIw3tHsdO']
-
-const optiondest=['pIjJC4ub3em','tFdansXIMbw'] */
-
 
 months = (year) =>{
     let monthString ="";
@@ -23,12 +17,10 @@ months = (year) =>{
 
 
 readData = async (periods, csv)=>{
-    console.log("Enter in readData funtion")
 
     let resulat ;
     try {
        resulat = await dhis2source.get(`/analytics?dimension=pe:${periods}&dimension=${csv.optionArchive}&dimension=ou:LEVEL-5;Ky2CzFdfBuO&filter=dx:${csv.dataElementArchive}&skipMeta=true`)
-       console.log("Read OK for ", periods, csv.dataElementArchive , csv.comment)
     } catch (error) {
         console.log(error)
         console.log("=================================================================================================")
@@ -42,8 +34,6 @@ readData = async (periods, csv)=>{
 }
 
 postData = async (data)=>{
-    console.log("Enter in postData function")
-
     try {
         await dhis2destination.post(`/dataValues?${data}`)
         console.log("OK ", data)
@@ -59,7 +49,6 @@ postData = async (data)=>{
 
 
 migrate =async (periods, csv) =>{
-    console.log("Enter in migrate funtion")
     try {
         const data = await readData(periods, csv);
     
