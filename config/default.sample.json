@@ -1,0 +1,10 @@
+{
+    "dhis2source": {
+        "baseUrl": "",
+        "token": "Basic "
+    },
+    "dhis2destination": {
+        "baseUrl": "",
+        "token": "Basic "
+    }
+}
