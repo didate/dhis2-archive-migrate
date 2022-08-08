@@ -20,7 +20,11 @@ readData = async (periods, csv)=>{
 
     let resulat ;
     try {
-       resulat = await dhis2source.get(`/analytics?dimension=pe:${periods}&dimension=${csv.optionArchive}&dimension=ou:LEVEL-5;Ky2CzFdfBuO&filter=dx:${csv.dataElementArchive}&skipMeta=true`)
+        let dimensionOptionArchive =""
+        if(csv.optionArchive !==""){
+            dimensionOptionArchive =`&dimension=${csv.optionArchive}`
+        }
+       resulat = await dhis2source.get(`/analytics?dimension=pe:${periods}&dimension=ou:LEVEL-5;Ky2CzFdfBuO${dimensionOptionArchive}&filter=dx:${csv.dataElementArchive}&skipMeta=true`)
     } catch (error) {
         console.log(error)
         console.log("=================================================================================================")
@@ -54,8 +58,17 @@ migrate =async (periods, csv) =>{
     
         for (let index = 0; index < data.length; index++) {
             const d = data[index];
-            if(d[3]!==""){
-                const datavalue =`pe=${d[0]}&ou=${d[2]}&value=${parseInt(d[3])}&de=${csv.dataElementNouveau}&co=${csv.categorieOptionComboNouveau}&comment=${csv.comment}`
+           
+            let datavalue = ""
+            const value = csv.optionArchive ==="" ? d[2] : d[3]
+            if(value!==""){
+                
+                let categorieOptionComboNouveau =""
+
+                if(csv.categorieOptionComboNouveau !==""){
+                    categorieOptionComboNouveau =`&co=${csv.categorieOptionComboNouveau}`
+                }
+                datavalue =`pe=${d[0]}&ou=${d[1]}&value=${parseInt(value)}&de=${csv.dataElementNouveau}${categorieOptionComboNouveau}&comment=${csv.comment}`
                 await postData(datavalue)
             }
             
@@ -75,7 +88,7 @@ main = async ()=>{
     
 
     const datas = [];
-    fs.createReadStream('./pev.csv').pipe(csv()).on('data', (row) => {
+    fs.createReadStream('./tdfe.csv').pipe(csv()).on('data', (row) => {
         datas.push(row);
     }).on('end', async () => {
 
