@@ -88,13 +88,13 @@ main = async ()=>{
     
 
     const datas = [];
-    fs.createReadStream('./tdfe.csv').pipe(csv()).on('data', (row) => {
+    fs.createReadStream('./pev2016.csv').pipe(csv()).on('data', (row) => {
         datas.push(row);
     }).on('end', async () => {
 
 
         try {
-            for (let year = 2018; year <= 2021; year++) {
+            for (let year = 2016; year <= 2017; year++) {
                 const periods = months(year)
                for (let index = 0; index < datas.length; index++) {
                  const csv = datas[index]
