@@ -18,6 +18,9 @@ months = (year) =>{
 
 readData = async (periods, csv)=>{
 
+    
+
+
     let resulat ;
     try {
         let dimensionOptionArchive =""
@@ -25,6 +28,7 @@ readData = async (periods, csv)=>{
             dimensionOptionArchive =`&dimension=${csv.optionArchive}`
         }
        resulat = await dhis2source.get(`/analytics?dimension=pe:${periods}&dimension=ou:LEVEL-5;Ky2CzFdfBuO${dimensionOptionArchive}&filter=dx:${csv.dataElementArchive}&skipMeta=true`)
+       console.log(periods + ' READ FROM ARCHIVE');
     } catch (error) {
         console.log(error)
         console.log("=================================================================================================")
@@ -40,7 +44,6 @@ readData = async (periods, csv)=>{
 postData = async (data)=>{
     try {
         await dhis2destination.post(`/dataValues?${data}`)
-        console.log("OK ", data)
     } catch (error) {
         console.log(error)
         console.log("=================================================================================================")
@@ -95,11 +98,13 @@ main = async ()=>{
 
         try {
             for (let year = 2016; year <= 2017; year++) {
+                console.log(year + ' STARTING ....');
                 const periods = months(year)
                for (let index = 0; index < datas.length; index++) {
                  const csv = datas[index]
-                 migrate(periods, csv)  
+                 await migrate(periods, csv)  
                }
+               console.log(year + ' OK ....');
             }
         } catch (error) {
             console.log(error)
