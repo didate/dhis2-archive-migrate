@@ -40,7 +40,7 @@ readData = async (periods, csv)=>{
 postData = async (data)=>{
     try {
         await dhis2destination.post(`/dataValues?${data}`)
-        console.log(data , ' OK');
+        //console.log(data , ' OK');
     } catch (error) {
         console.log(error)
         console.log("=================================================================================================")
