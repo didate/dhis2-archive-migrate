@@ -17,10 +17,6 @@ months = (year) =>{
 
 
 readData = async (periods, csv)=>{
-
-    
-
-
     let resulat ;
     try {
         let dimensionOptionArchive =""
@@ -44,6 +40,7 @@ readData = async (periods, csv)=>{
 postData = async (data)=>{
     try {
         await dhis2destination.post(`/dataValues?${data}`)
+        console.log(data , ' OK');
     } catch (error) {
         console.log(error)
         console.log("=================================================================================================")
@@ -102,7 +99,7 @@ main = async ()=>{
                 const periods = months(year)
                for (let index = 0; index < datas.length; index++) {
                  const csv = datas[index]
-                 await migrate(periods, csv)  
+                 migrate(periods, csv)  
                }
                console.log(year + ' OK ....');
             }
