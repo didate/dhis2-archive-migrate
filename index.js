@@ -61,16 +61,18 @@ migrate =async (periods, csv) =>{
            
             let datavalue = ""
             const value = csv.optionArchive ==="" ? d[2] : d[3]
-            if(value!==""){
-                
-                let categorieOptionComboNouveau =""
-
-                if(csv.categorieOptionComboNouveau !==""){
-                    categorieOptionComboNouveau =`&co=${csv.categorieOptionComboNouveau}`
-                }
-                datavalue =`pe=${d[0]}&ou=${d[1]}&value=${parseInt(value)}&de=${csv.dataElementNouveau}${categorieOptionComboNouveau}&comment=${csv.comment}`
-                await postData(datavalue)
+            if(value==""){
+                value ="0"
             }
+                
+            let categorieOptionComboNouveau =""
+
+            if(csv.categorieOptionComboNouveau !==""){
+                categorieOptionComboNouveau =`&co=${csv.categorieOptionComboNouveau}`
+            }
+            datavalue =`pe=${d[0]}&ou=${d[1]}&value=${parseInt(value)}&de=${csv.dataElementNouveau}${categorieOptionComboNouveau}&comment=${csv.comment}`
+            await postData(datavalue)
+            
             
         }
     } catch (error) {
