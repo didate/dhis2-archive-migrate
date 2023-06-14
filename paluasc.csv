@@ -1,0 +1,12 @@
+optionArchive,dataElementArchive,comment,dataElementNouveau,categorieOptionComboNouveau,Name categorieOptionComboNouveau,Name dataElementNouveau
+,BAWQIjowdtV,Palu Total de Cas suspects de Paludisme < 5 ans enregistres par les ASC,xJrga6d1jm3,Rq1Q9GBqy0G,< 5ans, TDR,SIS_PALU Suspects de paludisme e la consultation 
+,nicDxLuCp5L,Palu Total de Cas suspects de Paludisme >= 5 ans enregistres par les ASC,xJrga6d1jm3,clReIzBCU10,>= 5ans (sans FE), TDR,SIS_PALU Suspects de paludisme e la consultation 
+,jwXkuHdvnPQ,Palu Total de Cas testes de Paludisme < 5 ans enregistres par les ASC,EH1aOtaF9UH,Rq1Q9GBqy0G,< 5ans, TDR,SIS_PALU Cas de paludisme teste
+,gEIEHiRGdOY,Palu Total de Cas testes de Paludisme >= 5 ans enregistres par les ASC,EH1aOtaF9UH,clReIzBCU10,>= 5ans (sans FE), TDR,SIS_PALU Cas de paludisme teste
+,VZMuLblXl6R,Palu Total de Cas confirmes de Paludisme < 5 ans enregistres par les ASC,Aps3ZQoFjs4,Rq1Q9GBqy0G,< 5ans, TDR,SIS_PALU Cas de paludisme confirme
+,RGGsxjtvM3X,Palu Total de Cas confirmes de Paludisme >= 5 ans enregistres par les ASC,Aps3ZQoFjs4,clReIzBCU10,>= 5ans (sans FE), TDR,SIS_PALU Cas de paludisme confirme
+,ArPb75w1k7r,Palu Total cas traites des < 5 ans enregistres par les ASC,JPUCOxp5uW0,Rq1Q9GBqy0G,< 5ans, TDR,SIS_PALU Cas paludisme traites avec CTA
+,Ce9FC1fkIio,Palu Total cas traites des >= 5 ans enregistres par les ASC,JPUCOxp5uW0,clReIzBCU10,>= 5ans (sans FE), TDR,SIS_PALU Cas paludisme traites avec CTA
+wW9GuZ1TyMg:nTWh8M56c1S,PUCkOLDg2O4,Palu Cas referes de Paludisme par les ASC,PUCkOLDg2O4,mb3bwlD8mGb,< 5ans,SIS_PALU Paludisme referes par les ASC
+wW9GuZ1TyMg:NvSpE5FlV7l,PUCkOLDg2O4,Palu Cas referes de Paludisme par les ASC,PUCkOLDg2O4,Jj664zsrBSS,>= 5ans (sans FE),SIS_PALU Paludisme referes par les ASC
+,eun3eeNkTXK,Palu FE refere par les ASC,PUCkOLDg2O4,OYsmvyhK5NS,Femmes enceintes,#N/A
